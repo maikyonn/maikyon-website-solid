@@ -1,15 +1,15 @@
 .project {
   @apply card w-96 bg-ctp-surface0 shadow-xl;
-  min-width: 24rem;
-  max-height: 24rem;
 }
 
 .project-carousel {
-  @apply carousel carousel-center pt-16 space-x-4 rounded-box;
+  @apply carousel carousel-center pt-16  space-x-8 rounded-box;
   max-width: 70rem;
 }
 
 .project-image {
-  height: 12rem;
+  @apply rounded-box;
+  height: 20rem;
+  width: 720px;
   object-fit: cover;
 }

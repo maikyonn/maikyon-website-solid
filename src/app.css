@@ -5,6 +5,10 @@
   font-family: "Ubuntu", sans-serif;
 }
 
+.centerpiece {
+  margin-top: 30%;
+}
+
 body {
-  @apply bg-ctp-base h-screen text-ctp-text flex flex-col justify-center items-center;
+  @apply bg-ctp-base h-screen w-screen text-ctp-text flex flex-col justify-center items-center;
 }

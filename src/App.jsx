@@ -1,4 +1,5 @@
 import "./app.css";
+
 import { Centerpiece } from "./components/centerpiece";
 import { Icons } from "./components/icons";
 import { Projects } from "./components/projects";
@@ -7,7 +8,7 @@ export default function App() {
   return (
     <div>
       <Prompt />
-      <Centerpiece class="mt-36" />
+      <Centerpiece class="centerpiece" />
       <Icons />
       <Projects />
     </div>

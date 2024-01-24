@@ -2,7 +2,7 @@ import blobHeart from "../assets/blobheart.png";
 
 export const Centerpiece = () => {
   return (
-    <div class="text-center">
+    <div class="text-center mt-24">
       <h1 class="group text-ctp-pink font-semibold lg:text-5xl text-4xl hover:scale-110 transition duration-50">
         hiya, I'm{" "}
         <span class="text-ctp-red relative">
