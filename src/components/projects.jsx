@@ -65,7 +65,7 @@ export const Projects = () => {
           <ul class="splide__list">
             <For each={projects()}>
               {(project) => (
-                <li class="splide__slide px-2">
+                <li class="splide__slide px-1">
                   <a href={project.link}>
                     <div class="flex flex-col justify-center items-center">
                       <img

@@ -10,6 +10,6 @@
 .project-image {
   @apply rounded-box;
   height: 20rem;
-  width: 35rem;
+  width: 33rem;
   object-fit: cover;
 }
