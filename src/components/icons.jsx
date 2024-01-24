@@ -8,10 +8,10 @@ import { RiLogosLinkedinLine } from "solid-icons/ri";
 export const Icons = () => {
   return (
     <div class="flex flex-wrap justify-center gap-x-3 lg:mt-6 mt-5">
-      <a href="https://github.com/artiemis" target="_blank">
+      <a href="https://github.com/maikyonn" target="_blank">
         <FiGithub class="h-8 w-8" />
       </a>
-      <a href="https://github.com/artiemis" target="_blank">
+      <a href="https://www.linkedin.com/in/mkvu" target="_blank">
         <RiLogosLinkedinLine class="h-8 w-8" />
       </a>
 
@@ -29,10 +29,11 @@ export const Icons = () => {
           />
         </div>
       </a>
-      <a rel="me" href="https://infosec.exchange/@artie" target="_blank">
-        <AiOutlineYoutube class="h-8 w-8" />
-      </a>
-      <a rel="me" href="https://infosec.exchange/@artie" target="_blank">
+      <a
+        rel="me"
+        href="https://open.spotify.com/user/22hyr5no4hmtmshsuzshimrla?si=KgKxeE3tTwi_xTEpF5jaGw"
+        target="_blank"
+      >
         <RiLogosSpotifyLine class="h-8 w-8" />
       </a>
 

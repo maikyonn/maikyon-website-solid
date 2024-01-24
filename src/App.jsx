@@ -6,7 +6,7 @@ import { Projects } from "./components/projects";
 import { Prompt } from "./components/prompt";
 export default function App() {
   return (
-    <div>
+    <div class="max-w-full min-w-full overflow-hidden">
       <Prompt />
       <Centerpiece class="centerpiece" />
       <Icons />

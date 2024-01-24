@@ -21,6 +21,12 @@ export const Projects = () => {
       link: "link.src",
     },
     {
+      name: "Artpond",
+      description: "An artist-focused social media platform made with Svelte.",
+      image: ap_image,
+      link: "link.src",
+    },
+    {
       name: "Vainglory 3v3 Draft",
       description:
         "A Vainglory 3v3 Drafting tool made in React using the Vainglory API",
@@ -34,22 +40,18 @@ export const Projects = () => {
       image: ad_image,
       link: "link.src",
     },
-    {
-      name: "Artpond",
-      description: "An artist-focused social media platform made with Svelte.",
-      image: ap_image,
-      link: "link.src",
-    },
   ]);
 
   document.addEventListener("DOMContentLoaded", function () {
+    new Splide(".splide").mount({ AutoScroll });
     var splide = new Splide(".splide", {
       drag: "free",
-      perPage: 3,
-      padding: "1rem",
+      perPage: 2,
+      perMove: 1,
       autoScroll: {
-        speed: 1,
+        speed: 0.5,
       },
+      wheel: true,
     });
 
     splide.mount();
@@ -57,32 +59,27 @@ export const Projects = () => {
   return (
     <div class="flex flex-col justify-center items-center">
       <section
-        class="splide mt-16 w-10/12"
+        class="splide mt-10 w-10/12"
         aria-label="Splide Basic HTML Example"
       >
         <div class="splide__track">
           <ul class="splide__list">
             <For each={projects()}>
               {(project) => (
-                <li class="splide__slide">
+                <li class="splide__slide px-2">
                   <a href={project.link}>
-                    <div class="">
-                      <figure class="">
-                        <img
-                          src={project.image}
-                          alt="Shoes"
-                          class="project-image"
-                        />
-                      </figure>
+                    <div class="flex flex-col justify-center items-center">
+                      <img
+                        src={project.image}
+                        alt="Shoes"
+                        class="project-image"
+                      />
 
-                      <div class="card-body items-center text-center p-4">
+                      <div class="items-center text-center p-4">
                         <h2 class="card-title font-extrabold">
                           {project.name}
                         </h2>
                         <p>{project.description}</p>
-                        {/* <div class="">
-                  <button class="btn btn-primary">Visit</button>
-                </div> */}
                       </div>
                     </div>
                   </a>
