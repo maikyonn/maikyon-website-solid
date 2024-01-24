@@ -15,30 +15,29 @@ export const Projects = () => {
   const [projects, setProjects] = createSignal([
     {
       name: "Harvest Festival",
-      description:
-        "About A short and aesthetic RPG game made in Java using STDDraw",
+      description: "A short and aesthetic RPG game made in Java",
       image: harvest_image,
-      link: "link.src",
+      link: "https://www.youtube.com/watch?v=8uKiM5fHUTA",
     },
     {
       name: "Artpond",
       description: "An artist-focused social media platform made with Svelte.",
       image: ap_image,
-      link: "link.src",
+      link: "https://github.com/maikyonn/greenteastudioswebsite",
     },
     {
       name: "Vainglory 3v3 Draft",
       description:
         "A Vainglory 3v3 Drafting tool made in React using the Vainglory API",
       image: vg_image,
-      link: "link.src",
+      link: "https://na-3v3s-tournament-select.vercel.app/",
     },
     {
       name: "cal.moe",
       description:
         "A website dedicated to Cal Animage Alpha, a club at UC Berkeley",
       image: ad_image,
-      link: "link.src",
+      link: "https://cal.moe/animedestiny",
     },
   ]);
 
