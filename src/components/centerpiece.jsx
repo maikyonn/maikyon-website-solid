@@ -5,8 +5,8 @@ export const Centerpiece = () => {
     <div class="text-center mt-24">
       <h1 class="group text-ctp-pink font-semibold lg:text-5xl text-4xl hover:scale-110 transition duration-50">
         hiya, I'm{" "}
-        <span class="text-ctp-red relative">
-          mikko
+        <span class="text-ctp-flamingo relative">
+          Michael
           <span class="absolute lg:bottom-[3.25rem] bottom-10 z-50 lg:text-xl text-lg lg:left-7 left-4 text-ctp-lavender opacity-0 group-hover:opacity-80 hover:opacity-50 transition duration-50">
             /ˈarti/
           </span>

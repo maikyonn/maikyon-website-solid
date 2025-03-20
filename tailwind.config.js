@@ -10,7 +10,7 @@ module.exports = {
       // default is `false`, which means no prefix
       prefix: "ctp",
       // which flavour of colours to use by default, in the `:root`
-      defaultFlavour: "mocha",
+      defaultFlavour: "latte",
     }),
     require("daisyui"),
   ],

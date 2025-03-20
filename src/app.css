@@ -1,14 +1,243 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap");
+  
+
+html {
+  scroll-behavior: smooth;
+}
 
 * {
   font-family: "Ubuntu", sans-serif;
 }
 
-.centerpiece {
-  margin-top: 30%;
+body {
+  @apply bg-ctp-base text-ctp-text;
+  margin: 0;
+  padding: 0;
 }
 
-body {
-  @apply bg-ctp-base h-screen w-screen text-ctp-text flex flex-col justify-center items-center;
+.app-container {
+  min-height: 100vh;
+  position: relative;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.home-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 65vh;
+  min-width: 100vw;
+  padding: 2rem 0;
+  position: relative;
+  z-index: 2; /* Make sure it's above the background */
+}
+
+/* Background wrapper and parallax styles */
+.background-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1; /* Keep behind content */
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.6s ease-in-out; /* Add smooth fade transition */
+  pointer-events: none; /* Don't interfere with clicking */
+}
+
+.background-wrapper.visible {
+  opacity: 1; /* Show when this class is applied */
+}
+
+.background-parallax {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Adjust opacity as needed */
+  z-index: 1;
+}
+
+/* Content styling for better visibility */
+.nav-link {
+  color: #333; /* Default color when no background */
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #8ecdf7; /* Lighter blue for better visibility on dark background */
+}
+
+.nav-link.active {
+  color: #8ecdf7;
+}
+
+.nav-separator {
+  color: #999; /* Default color when no background */
+  transition: color 0.2s ease;
+}
+
+/* Add this class to apply when portfolio is active */
+.portfolio-active .nav-link {
+  color: white;
+}
+
+.portfolio-active .nav-link:hover {
+  color: #8ecdf7;
+}
+
+.portfolio-active .nav-link.active {
+  color: #8ecdf7;
+}
+
+.portfolio-active .nav-separator {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.additional-section {
+  width: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.5s ease forwards;
+  position: relative;
+  z-index: 2;
+  background-color: white; /* Changed to solid white */
+  padding: 2rem;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle Navigation Styles */
+.subtle-nav {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .home-section {
+    padding: 1rem 0;
+  }
+
+  .subtle-nav {
+    font-size: 0.8rem;
+    margin: 1.5rem 0;
+  }
+}
+
+/* Add white background for development tab */
+.development-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 0; /* Below everything */
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.development-background.visible {
+  opacity: 1;
+}
+
+/* Add these new rules to change the centerpiece text color when portfolio is active */
+.portfolio-active h1,
+.portfolio-active p {
+  color: white !important;
+  transition: color 0.4s ease;
+}
+
+/* Update the specific spans within the heading */
+.portfolio-active h1 .text-ctp-flamingo {
+  color: white !important;
+}
+
+.portfolio-active h1 .text-ctp-lavender {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* For the normal state, add transitions to make the color change smooth */
+.home-section h1,
+.home-section p,
+.home-section h1 .text-ctp-flamingo,
+.home-section h1 .text-ctp-lavender {
+  transition: color 0.4s ease;
+}
+
+/* Icon color handling for different tabs */
+.home-section svg {
+  color: #333; /* Default color when on development tab */
+  transition: color 0.4s ease;
+}
+
+/* Make icons white when portfolio is active */
+.portfolio-active svg {
+  color: white !important;
+  transition: color 0.4s ease;
+}
+
+/* Optional hover effects that work with both color schemes */
+.home-section a:hover svg {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* Keep transitions smooth */
+.home-section a svg {
+  transition: color 0.4s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Artie prompt styling for portfolio active state */
+.portfolio-active .artie {
+  color: white !important;
+  transition: color 0.4s ease;
+}
+
+.portfolio-active .artie span.text-ctp-flamingo {
+  color: #ffb8d9 !important; /* Light pink for better visibility on dark background */
+  transition: color 0.4s ease;
+}
+
+/* Change the blinking cursor color */
+.portfolio-active .artie::after {
+  background-color: white !important;
+  transition: background-color 0.4s ease;
+}
+
+/* Add transitions to the default state */
+.artie, 
+.artie span, 
+.artie::after {
+  transition: color 0.4s ease, background-color 0.4s ease;
 }

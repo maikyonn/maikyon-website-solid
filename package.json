@@ -24,6 +24,8 @@
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "solid-icons": "^1.1.0",
     "solid-js": "^1.7.6",
-    "solid-motionone": "^1.0.0"
+    "solid-motionone": "^1.0.0",
+    "tsparticles": "^3.8.1",
+    "ukiyojs": "^4.2.0"
   }
 }
