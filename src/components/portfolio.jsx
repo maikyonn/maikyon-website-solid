@@ -1,9 +1,5 @@
 import { onMount, createSignal } from "solid-js";
 import Ukiyo from "ukiyojs";
-import maplemai from "../assets/maplemai.png";
-import dreams from "../assets/dreams.jpg";
-import daylight from "../assets/daylight.jpg";
-import harvest from "../assets/harvest.png";
 import "./portfolio.css";
 
 // Import all images from the finished_work directory
