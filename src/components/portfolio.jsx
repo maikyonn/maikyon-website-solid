@@ -34,6 +34,7 @@ import work24 from "../assets/finished_work/compressed1080p/24.webp";
 export const Portfolio = () => {
   const [selectedImage, setSelectedImage] = createSignal(null);
   const [isClosing, setIsClosing] = createSignal(false);
+  const [bioExpanded, setBioExpanded] = createSignal(false);
   
   // Array of finished work images with priority values
   const finishedWorks = [
@@ -56,12 +57,12 @@ export const Portfolio = () => {
     { src: work16, alt: "Finished Work 16", priority: 5 },
     { src: work17, alt: "Finished Work 17", priority: 0 },
     { src: work18, alt: "Finished Work 18", priority: 4 },
-    { src: work19, alt: "Finished Work 19", priority: 9 },
+    { src: work19, alt: "Finished Work 19", priority: 10 },
     { src: work20, alt: "Finished Work 20", priority: 4 },
     { src: work21, alt: "Finished Work 21", priority: 3 },
     { src: work22, alt: "Finished Work 22", priority: 2 },
     { src: work23, alt: "Finished Work 23", priority: 8 },
-    { src: work24, alt: "Finished Work 24", priority: 10 },
+    { src: work24, alt: "Finished Work 24", priority: 9 },
   ];
 
   // Filter out works with priority 0, then sort the remaining by priority (highest first)
@@ -119,6 +120,10 @@ export const Portfolio = () => {
     }, 300);
   };
 
+  const toggleBio = () => {
+    setBioExpanded(!bioExpanded());
+  };
+
   return (
     <>
       <div class="portfolio-container">
@@ -139,31 +144,42 @@ export const Portfolio = () => {
         <section class="portfolio-section finished-works">
           {/* <h2>Finished Work</h2> */}
           <Portal mount={document.querySelector('.home-section')}>
-            <div class="bio-container">
-              <div class="bio-profile-image">
-                <img src={work9} alt="Profile" />
-                <div class="mt-4 profile-info flex flex-col items-center">
-                  <h3 class="font-bold text-center">maple_bgs</h3>
-                  <a href="https://www.instagram.com/maple_bgs" target="_blank" rel="noopener noreferrer" class="instagram-link text-center">
-                    @maple_bgs
-                  </a>
+            <div class={`bio-button-container ${bioExpanded() ? 'bio-expanded' : ''}`}>
+              <button 
+                class="bio-toggle-button" 
+                onClick={toggleBio}
+                aria-expanded={bioExpanded()}
+                aria-controls="bio-content"
+              >
+                <span class="bio-button-text">
+                  {bioExpanded() ? 'Hide Bio' : 'About the Artist'}
+                </span>
+                <span class="bio-button-icon">{bioExpanded() ? '−' : '+'}</span>
+              </button>
+              
+              <div id="bio-content" class="bio-container" aria-hidden={!bioExpanded()}>
+                <div class="bio-profile-image">
+                  <img src={work9} alt="Profile" />
+                  <div class="mt-4 profile-info flex flex-col items-center">
+                    <h3 class="font-bold text-center">maple_bgs</h3>
+                    <a href="https://www.instagram.com/maple_bgs" target="_blank" rel="noopener noreferrer" class="instagram-link text-center">
+                      @maple_bgs
+                    </a>
+                  </div>
                 </div>
-              </div>
-              <div class="bio-content">
-                <div class="bio-text">
-                  I started drawing when the COVID lockdown started, and I studied art for 3 years till my first year of college.
-                  During that time, I've been mentored by many professional artists, most notably Kat Tsai (Across The Spiderverse), Khang Le (Promare), and Sinix Design. 
-                  I've done commission art for Seycara Orchestral, various game projects, and more. 
-                </div>
-                <div class="bio-text">
-                  My art represents the ideal, harmony, and feelings of the world. My painting style is inspired by western vis-dev animation style, as taught to me by my mentors,
-                  with a focus on eastern color approaches and anime aesthetics.
+                <div class="bio-content">
+                  <div class="bio-text">
+                    I started drawing when the COVID lockdown started, and I studied art for 3 years till my first year of college.
+                    During that time, I've been mentored by many professional artists, most notably Kat Tsai (Across The Spiderverse), Khang Le (Promare), and Sinix Design. 
+                    I've done commission art for Seycara Orchestral, various game projects, and more. 
+                  </div>
+                  <div class="bio-text">
+                    My art represents the ideal, harmony, and feelings of the world. My painting style is inspired by western vis-dev animation style, as taught to me by my mentors,
+                    with a focus on eastern color approaches and anime aesthetics.
+                  </div>
                 </div>
               </div>
             </div>
-          
-
-            
           </Portal>
 
           <div class="finished-works-grid">
