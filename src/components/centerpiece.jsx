@@ -7,9 +7,9 @@ export const Centerpiece = () => {
         hiya, I'm{" "}
         <span class="text-ctp-flamingo relative">
           Michael
-          <span class="absolute lg:bottom-[3.25rem] bottom-10 z-50 lg:text-xl text-lg lg:left-7 left-4 text-ctp-lavender opacity-0 group-hover:opacity-80 hover:opacity-50 transition duration-50">
+          {/* <span class="absolute lg:bottom-[3.25rem] bottom-10 z-50 lg:text-xl text-lg lg:left-7 left-4 text-ctp-lavender opacity-0 group-hover:opacity-80 hover:opacity-50 transition duration-50">
             /ˈarti/
-          </span>
+          </span> */}
         </span>{" "}
         <img
           class="align-top lg:w-12 w-10 inline-block pointer-events-none select-none"
