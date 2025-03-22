@@ -1,7 +1,8 @@
 /* @refresh reload */
 import { render } from 'solid-js/web';
-import { Analytics } from "@vercel/analytics/react"
-
+import { inject } from '@vercel/analytics';
+ 
+inject();
 import './index.css';
 import App from './App';
 
