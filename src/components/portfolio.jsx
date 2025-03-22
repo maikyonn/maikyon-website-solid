@@ -1,33 +1,35 @@
-import { onMount, createSignal } from "solid-js";
+import { onMount, createSignal, createEffect } from "solid-js";
+import { Portal } from "solid-js/web";
 import Ukiyo from "ukiyojs";
 import "./portfolio.css";
 
 // Import all images from the finished_work directory
 // Note: You'll need to replace these with your actual image imports
-import work0 from "../assets/finished_work/compressed/0.jpg";
-import work1 from "../assets/finished_work/compressed/1.jpg";
-import work2 from "../assets/finished_work/compressed/2.jpg";
-import work3 from "../assets/finished_work/compressed/3.jpg";
-import work4 from "../assets/finished_work/compressed/4.jpg";
-import work5 from "../assets/finished_work/compressed/5.jpg";
-import work6 from "../assets/finished_work/compressed/6.jpg";
-import work7 from "../assets/finished_work/compressed/7.jpg";
-import work8 from "../assets/finished_work/compressed/8.jpg";
-import work9 from "../assets/finished_work/compressed/9.jpg";
-import work10 from "../assets/finished_work/compressed/10.jpg";
-import work11 from "../assets/finished_work/compressed/11.jpg";
-import work12 from "../assets/finished_work/compressed/12.jpg";
-import work13 from "../assets/finished_work/compressed/13.jpg";
-import work14 from "../assets/finished_work/compressed/14.jpg";
-import work15 from "../assets/finished_work/compressed/15.jpg";
-import work16 from "../assets/finished_work/compressed/16.jpg";
-import work17 from "../assets/finished_work/compressed/17.jpg";
-import work18 from "../assets/finished_work/compressed/18.jpg";
-import work19 from "../assets/finished_work/compressed/19.jpg";
-import work20 from "../assets/finished_work/compressed/20.jpg";
-import work21 from "../assets/finished_work/compressed/21.jpg";
-import work22 from "../assets/finished_work/compressed/22.jpg";
-import work23 from "../assets/finished_work/compressed/23.jpg";
+import work0 from "../assets/finished_work/compressed1080p/0.webp";
+import work1 from "../assets/finished_work/compressed1080p/1.webp";
+import work2 from "../assets/finished_work/compressed1080p/2.webp";
+import work3 from "../assets/finished_work/compressed1080p/3.webp";
+import work4 from "../assets/finished_work/compressed1080p/4.webp";
+import work5 from "../assets/finished_work/compressed1080p/5.webp";
+import work6 from "../assets/finished_work/compressed1080p/6.webp";
+import work7 from "../assets/finished_work/compressed1080p/7.webp";
+import work8 from "../assets/finished_work/compressed1080p/8.webp";
+import work9 from "../assets/finished_work/compressed1080p/9.webp";
+import work10 from "../assets/finished_work/compressed1080p/10.webp";
+import work11 from "../assets/finished_work/compressed1080p/11.webp";
+import work12 from "../assets/finished_work/compressed1080p/12.webp";
+import work13 from "../assets/finished_work/compressed1080p/13.webp";
+import work14 from "../assets/finished_work/compressed1080p/14.webp";
+import work15 from "../assets/finished_work/compressed1080p/15.webp";
+import work16 from "../assets/finished_work/compressed1080p/16.webp";
+import work17 from "../assets/finished_work/compressed1080p/17.webp";
+import work18 from "../assets/finished_work/compressed1080p/18.webp";
+import work19 from "../assets/finished_work/compressed1080p/19.webp";
+import work20 from "../assets/finished_work/compressed1080p/20.webp";
+import work21 from "../assets/finished_work/compressed1080p/21.webp";
+import work22 from "../assets/finished_work/compressed1080p/22.webp";
+import work23 from "../assets/finished_work/compressed1080p/23.webp";
+import work24 from "../assets/finished_work/compressed1080p/24.webp";
 
 export const Portfolio = () => {
   const [selectedImage, setSelectedImage] = createSignal(null);
@@ -42,10 +44,10 @@ export const Portfolio = () => {
     { src: work4, alt: "Finished Work 4", priority: 0 },
     { src: work5, alt: "Finished Work 5", priority: 4 },
     { src: work6, alt: "Finished Work 6", priority: 10 },
-    { src: work7, alt: "Finished Work 7", priority: 0 },
+    { src: work7, alt: "Finished Work 7", priority: 5 },
     { src: work8, alt: "Finished Work 8", priority: 0 },
     { src: work9, alt: "Finished Work 9", priority: 0 },
-    { src: work10, alt: "Finished Work 10", priority: 9 },
+    { src: work10, alt: "Finished Work 10", priority: 6 },
     { src: work11, alt: "Finished Work 11", priority: 7 },
     { src: work12, alt: "Finished Work 12", priority: 7 },
     { src: work13, alt: "Finished Work 13", priority: 4 },
@@ -57,8 +59,9 @@ export const Portfolio = () => {
     { src: work19, alt: "Finished Work 19", priority: 9 },
     { src: work20, alt: "Finished Work 20", priority: 4 },
     { src: work21, alt: "Finished Work 21", priority: 3 },
-    { src: work22, alt: "Finished Work 22", priority: 1 },
+    { src: work22, alt: "Finished Work 22", priority: 2 },
     { src: work23, alt: "Finished Work 23", priority: 8 },
+    { src: work24, alt: "Finished Work 24", priority: 10 },
   ];
 
   // Filter out works with priority 0, then sort the remaining by priority (highest first)
@@ -100,10 +103,15 @@ export const Portfolio = () => {
   const handleImageClick = (src) => {
     setIsClosing(false);
     setSelectedImage(src);
+    // Prevent scrolling on body when modal is open
+    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     setIsClosing(true);
+    // Re-enable scrolling
+    document.body.style.overflow = '';
+    
     // Wait for animation to complete before removing modal
     setTimeout(() => {
       setSelectedImage(null);
@@ -130,6 +138,34 @@ export const Portfolio = () => {
         {/* Finished Work Grid */}
         <section class="portfolio-section finished-works">
           {/* <h2>Finished Work</h2> */}
+          <Portal mount={document.querySelector('.home-section')}>
+            <div class="bio-container">
+              <div class="bio-profile-image">
+                <img src={work9} alt="Profile" />
+                <div class="mt-4 profile-info flex flex-col items-center">
+                  <h3 class="font-bold text-center">maple_bgs</h3>
+                  <a href="https://www.instagram.com/maple_bgs" target="_blank" rel="noopener noreferrer" class="instagram-link text-center">
+                    @maple_bgs
+                  </a>
+                </div>
+              </div>
+              <div class="bio-content">
+                <div class="bio-text">
+                  I started drawing when the COVID lockdown started, and I studied art for 3 years till my first year of college.
+                  During that time, I've been mentored by many professional artists, most notably Kat Tsai (Across The Spiderverse), Khang Le (Promare), and Sinix Design. 
+                  I've done commission art for Seycara Orchestral, various game projects, and more. 
+                </div>
+                <div class="bio-text">
+                  My art represents the ideal, harmony, and feelings of the world. My painting style is inspired by western vis-dev animation style, as taught to me by my mentors,
+                  with a focus on eastern color approaches and anime aesthetics.
+                </div>
+              </div>
+            </div>
+          
+
+            
+          </Portal>
+
           <div class="finished-works-grid">
             {/* Left Column */}
             <div class="column">
@@ -157,17 +193,20 @@ export const Portfolio = () => {
               ))}
             </div>
           </div>
+
         </section>
       </div>
 
-      {/* Image Modal */}
+      {/* Image Modal - Using Portal to render at document body level */}
       {selectedImage() && (
-        <div class={`modal-overlay ${isClosing() ? 'closing' : ''}`} onClick={closeModal}>
-          <div class="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button class="modal-close" onClick={closeModal}>×</button>
-            <img src={selectedImage()} alt="Full size image" />
+        <Portal mount={document.body}>
+          <div class={`modal-overlay ${isClosing() ? 'closing' : ''}`} onClick={closeModal}>
+            <div class="modal-content" onClick={(e) => e.stopPropagation()}>
+              <button class="modal-close" onClick={closeModal}>×</button>
+              <img src={selectedImage()} alt="Full size image" />
+            </div>
           </div>
-        </div>
+        </Portal>
       )}
     </>
   );

@@ -1,10 +1,10 @@
 import { For } from "solid-js";
 import { createSignal } from "solid-js";
 
-import harvest_image from "../assets/harvest.png";
-import vg_image from "../assets/vg.jpg";
-import ad_image from "../assets/ad.jpg";
-import ap_image from "../assets/ap.jpg";
+import harvest_image from "../assets/harvest.webp";
+import vg_image from "../assets/vg.webp";
+import ad_image from "../assets/ad.webp";
+import ap_image from "../assets/ap.webp";
 import "./projects.css";
 import "@splidejs/splide/css";
 

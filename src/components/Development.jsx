@@ -2,12 +2,12 @@ import { createSignal } from "solid-js";
 import "./development.css";
 
 // Import project images
-import harvest_image from "../assets/harvest.png";
-import vg_image from "../assets/vg.jpg";
-import ad_image from "../assets/ad.jpg";
-import ap_image from "../assets/ap.jpg";
-import joyless_image from "../assets/joyless.png";
-import optimat_image from "../assets/optimat.png";
+import harvest_image from "../assets/harvest.webp";
+import vg_image from "../assets/vg.webp";
+import ad_image from "../assets/ad.webp";
+import ap_image from "../assets/ap.webp";
+import joyless_image from "../assets/joyless.webp";
+import optimat_image from "../assets/optimat.webp";
 export const Development = () => {
   const projectsData = [
     {

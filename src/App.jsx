@@ -1,7 +1,7 @@
 import { createSignal, onMount, createEffect } from "solid-js";
 import "./app.css";
 import Ukiyo from "ukiyojs";
-import maplemai from "./assets/maplemai.png";
+import maplemai from "./assets/maplemai.webp";
 
 import { Centerpiece } from "./components/centerpiece";
 import { Icons } from "./components/icons";
@@ -121,18 +121,18 @@ export default function App() {
     setActiveSection(section);
     updateUrlForSection(section);
     
-    if (section) {
-      // Wait for the section to render and then scroll
-      setTimeout(() => {
-        const element = document.querySelector('.additional-section');
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 200);
-    } else {
-      // Scroll to top when clicking development
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    // if (section) {
+    //   // Wait for the section to render and then scroll
+    //   setTimeout(() => {
+    //     const element = document.querySelector('.additional-section');
+    //     if (element) {
+    //       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    //     }
+    //   }, 200);
+    // } else {
+    //   // Scroll to top when clicking development
+    //   window.scrollTo({ top: 0, behavior: 'smooth' });
+    // }
   };
 
   return (
